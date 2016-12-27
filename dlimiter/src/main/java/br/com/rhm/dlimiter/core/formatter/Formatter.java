@@ -5,4 +5,6 @@ import br.com.rhm.dlimiter.DelimiterException;
 public interface Formatter<T> {
 
 	String format(T t) throws DelimiterException;
+	
+	String formatHeader() throws DelimiterException;
 }

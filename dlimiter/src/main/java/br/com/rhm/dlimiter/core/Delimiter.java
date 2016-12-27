@@ -10,6 +10,9 @@ import br.com.rhm.dlimiter.DelimiterException;
 
 public interface Delimiter<T> {
 
+	public static final String LB_CR = "\r\n";
+	public static final byte[] LB_CR_BYTE_ARRAY = LB_CR.getBytes();
+	
 	T parse(String value) throws DelimiterException;
 	List<T> parse(List<String> value) throws DelimiterException;
 	List<T> parse(File file) throws IOException;

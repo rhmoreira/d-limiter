@@ -1,8 +1,10 @@
 package br.com.rhm.dlimiter.core.formatter;
 
 import java.lang.reflect.Field;
+import java.util.Arrays;
 
 import br.com.rhm.dlimiter.DelimiterException;
+import br.com.rhm.dlimiter.annotation.Header;
 import br.com.rhm.dlimiter.core.Delimiter;
 import br.com.rhm.dlimiter.core.Delimiters;
 import br.com.rhm.dlimiter.core.converter.Converter;
@@ -79,5 +81,21 @@ public class TokenFormatter<T> implements Formatter<T> {
 		return stringValue;
 	}
 	
+	@Override
+	public String formatHeader() throws DelimiterException {
+		Class<?> handledClass = clHandler.getHandledClass();
+		Header header = handledClass.getAnnotation(Header.class);
+		if (header != null){
+			String[] headerValues = header.value();
+			StringBuilder sb = new StringBuilder();
+			Arrays
+				.stream(headerValues)
+				.forEach(h -> sb.append(h).append(conf.getDelimiterToken()));
+			
+			sb.setLength(sb.length() - 1);
+			return sb.append(Delimiter.LB_CR).toString();
+		}
+		return "";
+	}
 	
 }

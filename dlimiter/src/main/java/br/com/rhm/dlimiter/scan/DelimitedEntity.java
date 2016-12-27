@@ -11,4 +11,5 @@ public interface DelimitedEntity<T> {
 	
 	Formatter<T> getFormatter();
 
+	Configuration getConfiguration();
 }

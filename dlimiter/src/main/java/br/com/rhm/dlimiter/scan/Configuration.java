@@ -2,8 +2,8 @@ package br.com.rhm.dlimiter.scan;
 
 public final class Configuration {
 
-	private String delimiterToken;
-	private boolean blankValueWhenNull;
+	private String delimiterToken = ";";
+	private int skipFirstLines;
 
 	public String getDelimiterToken() {
 		return delimiterToken;
@@ -13,11 +13,11 @@ public final class Configuration {
 		this.delimiterToken = delimiterToken;
 	}
 
-	public boolean isBlankValueWhenNull() {
-		return blankValueWhenNull;
+	public int getSkipFirstLines() {
+		return skipFirstLines;
 	}
 
-	public void setBlankValueWhenNull(boolean blankValueWhenNull) {
-		this.blankValueWhenNull = blankValueWhenNull;
+	public void setSkipFirstLines(int skipFirstLines) {
+		this.skipFirstLines = skipFirstLines;
 	}
 }

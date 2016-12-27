@@ -10,6 +10,10 @@ public final class Delimiters {
 	
 	public static <T> Delimiter<T> getInstance(Class<T> clazz){
 		DelimitedEntity<T> delimitedEntity = DelimiterScanner.scan(clazz);
+		return getInstance(delimitedEntity);
+	}
+	
+	public static <T> Delimiter<T> getInstance(DelimitedEntity<T> delimitedEntity){
 		return new DelimiterImpl<>(delimitedEntity);
 	}
 
