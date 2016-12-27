@@ -30,23 +30,23 @@ class PositionalValue {
 		
 		value = value.trim();
 		
-		return getFormattedValue(value);
+		int maxLength = getEnd() - (getStart() -1);
+		
+		return getFormattedValue(value, maxLength);
 	}
 	
-	private String getFormattedValue(String value){
+	private String getFormattedValue(String value, int maxLength){
 		Orientation orientation = position.orientation();
 		
 		OrientationPadding orientationPadding = orientation.padding();
 		String charFill = orientation.fill();
 		
-		int length = getEnd() - (getStart() -1);
-		
 		switch (orientationPadding) {
 		case LEFT:
-			value = DUtil.padLeft(value, charFill, length);
+			value = DUtil.padLeft(value, charFill, maxLength);
 			break;
 		case RIGHT:
-			value = DUtil.padRight(value, charFill, length);
+			value = DUtil.padRight(value, charFill, maxLength);
 			break;
 		}
 		

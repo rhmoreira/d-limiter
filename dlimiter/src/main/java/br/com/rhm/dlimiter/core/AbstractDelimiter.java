@@ -75,8 +75,8 @@ abstract class AbstractDelimiter<T> implements Delimiter<T>{
 		for (T t: list){
 			String format = format(t);
 			out.write(format.getBytes());
-			out.write(LINE_BREAK);
 			out.write(CARRIAGE_RETURN);
+			out.write(LINE_BREAK);
 			out.flush();
 		}
 	}
