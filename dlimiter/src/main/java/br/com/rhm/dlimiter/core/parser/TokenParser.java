@@ -39,13 +39,13 @@ public class TokenParser<T> implements Parser<T> {
 	
 	private void applyValue(int index, String value, T entityInstance){
 		Field field = entity.getFieldForIndex(index);
-		Index annotation = field.getAnnotation(Index.class);
 		
-		if (annotation.trim())
-			value = value.trim();
-			
 		if (field == null || value.equals(""))
 			return ;
+		
+		Index annotation = field.getAnnotation(Index.class);		
+		if (annotation.trim())
+			value = value.trim();
 		
 		ClassHandler classHandler = entity.getClassHandler();
 		DependencyMapper dependencyMapper = classHandler.getDependencyMapper();

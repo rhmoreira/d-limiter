@@ -1,6 +1,7 @@
 package br.com.rhm.dlimiter.core;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -8,6 +9,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -88,24 +90,26 @@ class DelimiterImpl<T> implements Delimiter<T>{
 	
 	@Override
 	public void format(List<T> list, OutputStream out) throws IOException {
+		BufferedWriter bfw = new BufferedWriter(new OutputStreamWriter(out, conf.getEncoding()));
 		for (T t: list){
 			String format = format(t);
 			hasHeader = true;
-			write(format, out);
+			write(format, bfw);
 		}
 		hasHeader = false;
 	}
 	
-	private void write(String value, OutputStream out) throws IOException{
-		out.write(value.getBytes());
-		out.write(LB_CR_BYTE_ARRAY);
-		out.flush();
+	private void write(String value, BufferedWriter bfw) throws IOException{
+		bfw.write(value);
+		bfw.write(LB_CR);
+		bfw.flush();
 	}
 	
 	@Override
 	public void format(T t, OutputStream out) throws IOException {
+		BufferedWriter bfw = new BufferedWriter(new OutputStreamWriter(out, conf.getEncoding()));
 		String formatted = format(t);
-		write(formatted, out);
+		write(formatted, bfw);
 	}
 
 	@Override

@@ -81,8 +81,6 @@ public class PositionalFormatter<T> implements Formatter<T> {
 
 	@Override
 	public String formatHeader() throws DelimiterException {
-		System.out.println("No header for positional formatter");
 		return "";
 	}
-
 }

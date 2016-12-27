@@ -6,12 +6,23 @@ class BigDecimalConverter extends StringConstructorConverter implements Converte
 
 	@Override
 	public BigDecimal from(String value) {
+		value = replaceChars(value);
 		return (BigDecimal) convert(BigDecimal.class, value);
 	}
 
 	@Override
 	public String to(BigDecimal t) {
 		return t.toString();
+	}
+	
+	private String replaceChars(String value) {
+		if (value.indexOf(",") != -1){
+			if (value.indexOf(".") != -1)
+				value = value.replaceAll("\\.", "");
+			
+			return value.replaceAll(",", ".");
+		}else
+			return value;
 	}
 
 }
