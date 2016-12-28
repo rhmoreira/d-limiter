@@ -8,7 +8,7 @@ import java.lang.annotation.Target;
 
 @Target({ElementType.TYPE})
 @Retention(RUNTIME)
-public @interface Header {
+public @interface TokenizedHeader {
 
 	String[] value();
 }

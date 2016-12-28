@@ -4,7 +4,7 @@ import java.lang.reflect.Field;
 import java.util.Arrays;
 
 import br.com.rhm.dlimiter.DelimiterException;
-import br.com.rhm.dlimiter.annotation.Header;
+import br.com.rhm.dlimiter.annotation.TokenizedHeader;
 import br.com.rhm.dlimiter.core.Delimiter;
 import br.com.rhm.dlimiter.core.Delimiters;
 import br.com.rhm.dlimiter.core.converter.Converter;
@@ -84,7 +84,7 @@ public class TokenFormatter<T> implements Formatter<T> {
 	@Override
 	public String formatHeader() throws DelimiterException {
 		Class<?> handledClass = clHandler.getHandledClass();
-		Header header = handledClass.getAnnotation(Header.class);
+		TokenizedHeader header = handledClass.getAnnotation(TokenizedHeader.class);
 		if (header != null){
 			String[] headerValues = header.value();
 			StringBuilder sb = new StringBuilder();
