@@ -70,7 +70,7 @@ class DelimiterImpl<T> implements Delimiter<T>{
 		String line = null;
 		int skipedLines = 0;
 		while ( (line = br.readLine()) != null){
-			if (skipedLines++ > conf.getSkipFirstLines())
+			if (skipedLines++ >= conf.getSkipFirstLines())
 				entities.add(parse(line));
 		}
 		return entities;

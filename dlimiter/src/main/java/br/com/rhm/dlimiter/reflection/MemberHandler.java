@@ -44,7 +44,7 @@ public class MemberHandler {
 				String setterMethod = DUtil.generateSetterMethodName(field.getName());
 				mapMethod(declaringClass, setterMethod, new Class[]{field.getType()}, field.getName());
 				
-				String getterMethod = generateGetterMethodName(field);
+				String getterMethod = DUtil.generateGetterMethodName(field.getName());
 				mapMethod(declaringClass, getterMethod, new Class[]{}, field.getName());
 			}
 		}
@@ -77,14 +77,6 @@ public class MemberHandler {
 		return methodMap;
 	}
 	
-	private String generateGetterMethodName(Field field) {
-		String getterMethod = 
-				field.getType().isPrimitive() && field.getType() == boolean.class ?
-					DUtil.generatePrimitiveBooleanGetterMethodName(field.getName()):
-					DUtil.generateGetterMethodName(field.getName());
-		return getterMethod;
-	}
-
 	public boolean isMethodMapped(Method method) {
 		Method mappedMethod = getMappedMethods().get(method.getName());
 		if (mappedMethod != null && mappedMethod.equals(method))
@@ -103,7 +95,7 @@ public class MemberHandler {
 	}
 	
 	public MethodHandler getterMethodForField(Field field){
-		String getterMethodName = generateGetterMethodName(field);
+		String getterMethodName = DUtil.generateGetterMethodName(field.getName());
 		return new MethodHandler(methodMap.get(getterMethodName));
 	}
 	
