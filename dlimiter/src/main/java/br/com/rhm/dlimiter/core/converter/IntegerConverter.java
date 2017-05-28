@@ -8,7 +8,7 @@ class IntegerConverter extends StringConstructorConverter  implements Converter<
 	}
 
 	@Override
-	public String to(Integer t) {
+	public String toString(Integer t) {
 		return t.toString();
 	}
 

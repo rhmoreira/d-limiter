@@ -8,7 +8,7 @@ class LongConverter extends StringConstructorConverter  implements Converter<Lon
 	}
 
 	@Override
-	public String to(Long t) {
+	public String toString(Long t) {
 		return t.toString();
 	}
 

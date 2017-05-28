@@ -8,7 +8,7 @@ class ShortConverter extends StringConstructorConverter  implements Converter<Sh
 	}
 
 	@Override
-	public String to(Short s) {
+	public String toString(Short s) {
 		return s.toString();
 	}
 
