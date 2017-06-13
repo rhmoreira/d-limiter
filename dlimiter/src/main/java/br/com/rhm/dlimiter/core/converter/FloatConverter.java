@@ -8,7 +8,7 @@ class FloatConverter extends StringConstructorConverter  implements Converter<Fl
 	}
 
 	@Override
-	public String to(Float t) {
+	public String toString(Float t) {
 		return t.toString();
 	}
 

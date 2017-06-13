@@ -8,7 +8,7 @@ public class StringConverter extends StringConstructorConverter  implements Conv
 	}
 
 	@Override
-	public String to(String t) {
+	public String toString(String t) {
 		return t;
 	}
 

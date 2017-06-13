@@ -76,7 +76,7 @@ public class TokenFormatter<T> implements Formatter<T> {
 	
 	private String convert(Object value){
 		Converter<Object> converter = (Converter<Object>) Converters.getConverterFor(value.getClass());
-		String stringValue = converter.to(value);
+		String stringValue = converter.toString(value);
 		
 		return stringValue;
 	}

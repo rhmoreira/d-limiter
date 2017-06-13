@@ -11,7 +11,7 @@ class BigDecimalConverter extends StringConstructorConverter implements Converte
 	}
 
 	@Override
-	public String to(BigDecimal t) {
+	public String toString(BigDecimal t) {
 		return t.toString();
 	}
 	

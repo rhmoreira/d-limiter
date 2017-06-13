@@ -71,7 +71,7 @@ public class PositionalFormatter<T> implements Formatter<T> {
 
 	private String convert(Field field, Object value) {
 		Converter<Object> converter = (Converter<Object>) Converters.getConverterFor(field.getType());
-		return converter.to(value);
+		return converter.toString(value);
 	}
 
 	private String getDependencyValue(Field field, Object value) {

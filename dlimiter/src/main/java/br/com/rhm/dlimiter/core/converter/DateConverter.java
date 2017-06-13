@@ -21,7 +21,7 @@ class DateConverter implements Converter<Date> {
 	}
 
 	@Override
-	public String to(Date date) {
+	public String toString(Date date) {
 		return sdf.format(date);
 	}
 

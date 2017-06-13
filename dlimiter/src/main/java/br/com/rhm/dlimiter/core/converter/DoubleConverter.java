@@ -8,7 +8,7 @@ class DoubleConverter extends StringConstructorConverter  implements Converter<D
 	}
 
 	@Override
-	public String to(Double t) {
+	public String toString(Double t) {
 		return t.toString();
 	}
 
