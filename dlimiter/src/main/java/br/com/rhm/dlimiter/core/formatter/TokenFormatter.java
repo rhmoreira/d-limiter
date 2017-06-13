@@ -93,7 +93,7 @@ public class TokenFormatter<T> implements Formatter<T> {
 				.forEach(h -> sb.append(h).append(conf.getDelimiterToken()));
 			
 			sb.setLength(sb.length() - 1);
-			return sb.append(Delimiter.LB_CR).toString();
+			return sb.append(Delimiter.CR_LF).toString();
 		}
 		return "";
 	}

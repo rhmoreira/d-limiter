@@ -101,7 +101,7 @@ class DelimiterImpl<T> implements Delimiter<T>{
 	
 	private void write(String value, BufferedWriter bfw) throws IOException{
 		bfw.write(value);
-		bfw.write(LB_CR);
+		bfw.write(CR_LF);
 		bfw.flush();
 	}
 	
