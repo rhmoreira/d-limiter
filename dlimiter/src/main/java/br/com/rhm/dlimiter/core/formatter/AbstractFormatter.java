@@ -11,11 +11,11 @@ import br.com.rhm.dlimiter.reflection.DependencyMapper;
 import br.com.rhm.dlimiter.reflection.MemberHandler;
 import br.com.rhm.dlimiter.reflection.MemberHandler.MethodHandler;
 import br.com.rhm.dlimiter.reflection.ReflectionUtils;
-import br.com.rhm.dlimiter.scan.AbstractDelimitedEntity;
+import br.com.rhm.dlimiter.scan.DelimitedEntityHandler;
 
 public abstract class AbstractFormatter<T> implements Formatter<T> {
 
-	protected String getStringValue(AbstractDelimitedEntity<T> entity, T target, Field field) throws Exception{
+	protected String getStringValue(DelimitedEntityHandler<T> entity, T target, Field field) throws Exception{
 		
 		ClassHandler clHandler = entity.getClassHandler();
 		DependencyMapper dependencyMapper = clHandler.getDependencyMapper();
