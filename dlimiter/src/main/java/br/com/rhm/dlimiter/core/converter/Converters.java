@@ -28,11 +28,8 @@ public class Converters {
 		converterMap.put(java.sql.Date.class, dateConverter);
 	}
 	
-	public static void registerConverter(Converter<Class<?>> converter){
-		Class<?> classType = (Class<?>) ((ParameterizedType) converter.getClass()
-                .getGenericSuperclass()).getActualTypeArguments()[0];
-		
-		converterMap.put(classType, converter);
+	public static <T> void registerConverter(Converter<T> converter, Class<T> clazz){
+		converterMap.put(clazz, converter);
 	}
 	
 	public static <T> Converter<T> getConverterFor(Class<T> clazz){
